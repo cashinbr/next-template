@@ -1,5 +1,8 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ApolloProvider } from "@apollo/client";
+import client from "../apollo-client";
 import { type PropsWithChildren } from "react";
 import DefaultTheme from "./DefaultTheme";
 import "./globals.css";
@@ -16,7 +19,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <DefaultTheme>{children}</DefaultTheme>
+        <ApolloProvider client={client}>
+          <DefaultTheme>{children}</DefaultTheme>
+        </ApolloProvider>
       </body>
     </html>
   );
