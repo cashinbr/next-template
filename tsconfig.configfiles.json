@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "include": ["./*.js", "./*.cjs", "./*.mjs"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
