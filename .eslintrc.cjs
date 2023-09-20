@@ -8,9 +8,16 @@ module.exports = {
   plugins: ['react-refresh', 'prettier'],
   reportUnusedDisableDirectives: true,
   parserOptions: {
-    project: './tsconfig.configfiles.json',
+    project: './tsconfig.json',
   },
   overrides: [
+    {
+      files: ['./*.js', './*.cjs', './*.mjs'],
+      parserOptions: {
+        project: './tsconfig.configfiles.json',
+        tsconfigRootDir: __dirname,
+      },
+    },
     {
       files: ['*.ts', '*.tsx'],
       parserOptions: {
@@ -23,5 +30,6 @@ module.exports = {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/array-type': ['warn', { default: 'array' }],
+    '@typescript-eslint/strict-boolean-expressions': ['error', { allowNullableObject: true }],
   },
 };
